@@ -1,0 +1,52 @@
+{
+  "_from": "git+https://github.com/bees4honey/mobile_vin_scanner_phonegap.git",
+  "_id": "com.bees4honey.vinscanner@1.0.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/com.bees4honey.vinscanner",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/bees4honey/mobile_vin_scanner_phonegap",
+    "rawSpec": "https://github.com/bees4honey/mobile_vin_scanner_phonegap",
+    "saveSpec": "git+https://github.com/bees4honey/mobile_vin_scanner_phonegap.git",
+    "fetchSpec": "https://github.com/bees4honey/mobile_vin_scanner_phonegap.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/bees4honey/mobile_vin_scanner_phonegap.git#e985520f1cf19171c44d4f56dfa8efd6e6bf18cf",
+  "_spec": "https://github.com/bees4honey/mobile_vin_scanner_phonegap",
+  "_where": "/Users/seanstickrod/Documents/NWQuote",
+  "author": {
+    "name": "bees4honey"
+  },
+  "bugs": {
+    "url": "https://github.com/bees4honey/mobile_vin_scanner_phonegap/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "com.bees4honey.vinscanner",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Phonegap plugin for bees4honey VIN scanner SDK",
+  "homepage": "https://github.com/bees4honey/mobile_vin_scanner_phonegap#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "Paid usage, free trial",
+  "name": "com.bees4honey.vinscanner",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bees4honey/mobile_vin_scanner_phonegap.git"
+  },
+  "version": "1.0.0"
+}
