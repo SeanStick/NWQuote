@@ -28,6 +28,7 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        onBodyLoad();
     },
 
     // Update DOM on a Received Event
@@ -44,3 +45,25 @@ var app = {
 };
 
 app.initialize();
+
+
+function onBodyLoad() {
+    scanButton = document.getElementById("scan-button");
+    resultSpan = document.getElementById("scan-result");
+    scanButton.addEventListener("click", clickScan, false);
+}
+
+function clickScan() {
+    // console.log("clickScan run");
+    window.plugins.VINBarcodeScanner.scan(scannerSuccess, scannerFailure);
+}
+
+function scannerSuccess(result) {
+    alert(result.vincode);
+    resultSpan.innerText = "success: " + JSON.stringify(result);
+    alert(result.vincode);
+}
+
+function scannerFailure(message) {
+    resultSpan.innerText = "failure: " + JSON.stringify(message);
+}
