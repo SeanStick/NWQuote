@@ -41,14 +41,49 @@
         <div class="app">
             <h1>Apache Cordova</h1>
             <p><br><br><br></p>
-            <div>
-                <button id="scan-vin-button" >scan vin</button>
+            <div class="scan-buttons">
+                <div>
+                    <button id="scan-vin-button" >scan vin</button>
+                </div>
+                <div>
+                    <button id="scan-license-button" >scan license</button>
+                </div>
             </div>
-            <div>
-                <button id="scan-license-button" >scan license</button>
+
+        <div class="car-info">
+            <div class="ymm">
+                <div id="input-year"></div>
+                <div id="input-make"></div>
+                <div id="input-model"></div>
             </div>
-            <div>
-                <button id="get-quote-button" >get quote</button>
+            <div class="vin" id="input-vin"></div>
+        </div>
+            <div class="driver-info" >
+                <div class="driver-name">
+                    <div id="first-name"></div>
+                    <div id="last-name"></div>
+                </div>
+                <div class="driver-dob">
+                    <div id="dob"></div>
+                </div>
+                <div class="driver-gen">
+                    <div id="gender"></div>
+                </div>
+                <div class="driver-addr">
+                    <div id="street"></div>
+                    <div id="city"></div>
+                    <div id="state"></div>
+                    <div id="zip"></div>
+                </div>
+                <div class="driver-license">
+                    <div id="license"></div>
+                </div>
+            </div>
+
+            <div class="submit-button">
+                <div>
+                    <button id="get-quote-button" >get quote</button>
+                </div>
             </div>
             <p>scanned: <span id="scan-result">n/a</span></p>
         </div>
