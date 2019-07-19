@@ -28,30 +28,33 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        onBodyLoad();
+//        onBodyLoad();
+        $( "#scan-vin-button" ).click(function() {
+            clickScan();
+        });
     },
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+//        var parentElement = document.getElementById(id);
+//        var listeningElement = parentElement.querySelector('.listening');
+//        var receivedElement = parentElement.querySelector('.received');
+//
+//        listeningElement.setAttribute('style', 'display:none;');
+//        receivedElement.setAttribute('style', 'display:block;');
+//
+//        console.log('Received Event: ' + id);
     }
 };
 
 app.initialize();
 
 
-function onBodyLoad() {
-    scanButton = document.getElementById("scan-button");
-    resultSpan = document.getElementById("scan-result");
-    scanButton.addEventListener("click", clickScan, false);
-}
+//function onBodyLoad() {
+//    scanButton = document.getElementById("scan-vin-button");
+//    resultSpan = document.getElementById("scan-result");
+//    scanButton.addEventListener("click", clickScan, false);
+//}
 
 function clickScan() {
     // console.log("clickScan run");
@@ -59,11 +62,12 @@ function clickScan() {
 }
 
 function scannerSuccess(result) {
-    alert(result.vincode);
-    resultSpan.innerText = "success: " + JSON.stringify(result);
-    alert(result.vincode);
+    alert(JSON.stringify(result));
+//    resultSpan.innerText = "success: " + JSON.stringify(result);
+//    alert(result.vincode);
 }
 
 function scannerFailure(message) {
-    resultSpan.innerText = "failure: " + JSON.stringify(message);
+    alert("failed =(" + JSON.stringify(message));
+//    resultSpan.innerText = "failure: " + JSON.stringify(message);
 }
