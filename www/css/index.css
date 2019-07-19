@@ -72,9 +72,20 @@ h1 {
 }
 
 .submit-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    position: absolute;
+    bottom: 5%;
+    left: 41%;
+}
+
+.clicky-squares {
+    width: 100%;
+    margin: 8px;
+    padding: 14px;
+    box-shadow: 7px 6px 0px 0px rgba(0,0,0,0.75);
+}
+
+.texty-fields {
+    margin-top: 13px;
 }
 
 .event {
