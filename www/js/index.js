@@ -29,7 +29,10 @@ var app = {
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
         $( "#scan-vin-button" ).click(function() {
-            clickScan();
+            clickScanVIN();
+        });
+        $( "#scan-license-button" ).click(function() {
+            clickScanLicense();
         });
     },
 
@@ -48,23 +51,77 @@ var app = {
 
 app.initialize();
 
-function clickScan() {
-    window.plugins.VINBarcodeScanner.scan(scannerSuccess, scannerFailure);
+function clickScanVIN() {
+        cordova.plugins.barcodeScanner.scan(
+          function (result) {
+          console.log(result.text)
+                scannerSuccess(result.text);
+//              alert("We got a barcode\n" +
+//                    "Result: " + result.text + "\n" +
+//                    "Format: " + result.format + "\n" +
+//                    "Cancelled: " + result.cancelled);
+          },
+          function (error) {
+              alert("Scanning failed: " + error);
+          },
+          {
+              preferFrontCamera : false, // iOS and Android
+              showFlipCameraButton : false, // iOS and Android
+              showTorchButton : false, // iOS and Android
+              torchOn: false, // Android, launch with the torch switched on (if available)
+              saveHistory: false, // Android, save scan history (default false)
+              prompt : "Place a barcode inside the scan area", // Android
+              resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+              formats : "QR_CODE,CODE_39", // default: all but PDF_417 and RSS_EXPANDED
+              orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
+              disableAnimations : true, // iOS
+              disableSuccessBeep: false // iOS and Android
+          }
+       );
+}
+
+function clickScanLicense() {
+//    window.plugins.VINBarcodeScanner.scan(scannerSuccess, scannerFailure);
+    cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      },
+      function (error) {
+          alert("Scanning failed: " + error);
+      },
+      {
+          preferFrontCamera : false, // iOS and Android
+          showFlipCameraButton : false, // iOS and Android
+          showTorchButton : false, // iOS and Android
+          torchOn: false, // Android, launch with the torch switched on (if available)
+          saveHistory: false, // Android, save scan history (default false)
+          prompt : "Place a barcode inside the scan area", // Android
+          resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+          formats : "PDF_417", // default: all but PDF_417 and RSS_EXPANDED
+          orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
+          disableAnimations : true, // iOS
+          disableSuccessBeep: false // iOS and Android
+      }
+   );
+
 }
 
 function scannerSuccess(result) {
     $.ajax({
     	url: "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVINValuesBatch/",
     	type: "POST",
-    	data: { format: "json", data: result.VINCode + ";"},
+    	data: { format: "json", data: result + ";"},
     	dataType: "json",
     	success: function(result)
     	{
     		alert(JSON.stringify(result));
-    		$("#input-year").html(result.Results[0].ModelYear)
-    		$("#input-make").html(result.Results[0].Make)
-    		$("#input-model").html(result.Results[0].Model)
-
+    		$("#input-year").html(result.Results[0].ModelYear);
+    		$("#input-make").html(result.Results[0].Make);
+    		$("#input-model").html(result.Results[0].Model);
+    		$("#input-vin").html(result.Results[0].VIN);
     	},
     	error: function(xhr, ajaxOptions, thrownError)
     	{
