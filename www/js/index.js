@@ -56,10 +56,6 @@ function clickScanVIN() {
           function (result) {
           console.log(result.text)
                 scannerVINSuccess(result.text);
-//              alert("We got a barcode\n" +
-//                    "Result: " + result.text + "\n" +
-//                    "Format: " + result.format + "\n" +
-//                    "Cancelled: " + result.cancelled);
           },
           function (error) {
               alert("Scanning failed: " + error);
@@ -84,10 +80,13 @@ function clickScanLicense() {
 //    window.plugins.VINBarcodeScanner.scan(scannerSuccess, scannerFailure);
     cordova.plugins.barcodeScanner.scan(
       function (result) {
-          alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);
+          console.log(result.text);
+          var result_csv = result.text.split("\n");
+          var result_json = {};
+          for( i=2; i< result_csv.length; i++) {
+            result_json[result_csv[i].substring(0,3)] = result_csv[i].substring(3, result_csv[i].length);
+          };
+           scannerLicenseSuccess(result_json)
       },
       function (error) {
           alert("Scanning failed: " + error);
@@ -117,7 +116,7 @@ function scannerVINSuccess(result) {
     	dataType: "json",
     	success: function(result)
     	{
-    		alert(JSON.stringify(result));
+//    		alert(JSON.stringify(result));
     		$("#input-year").html(result.Results[0].ModelYear);
     		$("#input-make").html(result.Results[0].Make);
     		$("#input-model").html(result.Results[0].Model);
@@ -132,22 +131,16 @@ function scannerVINSuccess(result) {
 }
 
 function scannerLicenseSuccess(result) {
-        alert(JSON.stringify(result));
-        $("#first-name").html(result.Results[0].ModelYear);
-        $("#ilast-name").html(result.Results[0].Make);
-        $("#dob").html(result.Results[0].Model);
-        $("#gender").html(result.Results[0].VIN);
-        $("#street").html(result.Results[0].VIN);
-        $("#city").html(result.Results[0].VIN);
-        $("#state").html(result.Results[0].VIN);
-        $("#zip").html(result.Results[0].VIN);
-        $("#license").html(result.Results[0].VIN);
-    },
-    error: function(xhr, ajaxOptions, thrownError)
-    {
-        console.log(xhr.status);
-        alert(thrownError);
-    }
+//        alert(JSON.stringify(result));
+        $("#first-name").html(result["DAC"]);
+        $("#last-name").html(result["DCS"]);
+        $("#dob").html(result["DBB"]);
+        $("#gender").html(result["DBC"]);
+        $("#street").html(result["DAG"]);
+        $("#city").html(result["DAI"]);
+        $("#state").html(result["DAJ"]);
+        $("#zip").html(result["DAK"]);
+        $("#license").html(result["DAQ"]);
 }
 
 function scannerFailure(message) {
