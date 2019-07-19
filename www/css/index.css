@@ -77,12 +77,12 @@ h1 {
     left: 41%;
 }
 
-.clicky-squares {
-    width: 100%;
-    margin: 8px;
-    padding: 14px;
-    box-shadow: 7px 6px 0px 0px rgba(0,0,0,0.75);
-}
+/*.clicky-squares {*/
+    /*width: 100%;*/
+    /*margin: 8px;*/
+    /*padding: 14px;*/
+    /*box-shadow: 7px 6px 0px 0px rgba(0,0,0,0.75);*/
+/*}*/
 
 .texty-fields {
     margin-top: 13px;
@@ -122,4 +122,18 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+#scan-vin-button {
+    width: 100px;
+    height: 100px;
+ }
+
+#scan-license-button {
+    width: 100px;
+    height: 100px;
+}
+
+#dollar-button{
+    width: 100px;
+    height: 100px;
 }

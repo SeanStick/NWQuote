@@ -36,6 +36,10 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.js"></script>
+
+    <script src="js/simple-slider.js"></script>
+    <link href="css/simple-slider.css" rel="stylesheet" type="text/css" />
+
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>Hello World</title>
     <!--<script type="text/javascript" charset="utf-8" src="js/b4hvinscanner.js"></script>-->
@@ -47,14 +51,15 @@
     <div class="row">
         <div class="scan-buttons col-4">
             <div>
-                <button type="button" id="scan-vin-button" class="clicky-squares btn btn-primary btn-sm">scan vin
-                </button>
+
+                <img id="scan-vin-button" src="img/car.png">
             </div>
             <br>
             <div>
-                <button type="button" id="scan-license-button" class="clicky-squares btn btn-primary btn-sm">scan
-                    license
-                </button>
+                <img id="scan-license-button" src="img/person.png">
+            </div>
+            <div>
+                <img id="dollar-button" src="img/dollar.png">
             </div>
         </div>
         <div class='texty-fields col-8'>
@@ -98,9 +103,23 @@
                     </div>
                 </div>
             </div>
+
         </div>
+
+    </div>
+    <div class="none">
+        <div>Comp</div>
+        <input type="text" data-slider="true" data-slider-range="100,500" data-slider-step="100" data-slider-snap="true" style="display: none;">
+        <span class="output"></span>
+    </div>
+    <div class="none">
+        <div>Col</div>
+        <input type="text" data-slider="true" data-slider-range="100,500" data-slider-step="100" data-slider-snap="true" style="display: none;">
+        <span class="output"></span>
     </div>
 </div>
+
+
 <div class="submit-button">
     <div>
         <button id="get-quote-button">get quote</button>
