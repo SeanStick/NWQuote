@@ -1,8 +1,9 @@
 {
     "libiconv.dylib": 1,
     "libstdc++.tbd": 1,
-    "AVFoundation.framework": 1,
+    "AVFoundation.framework": 2,
     "Security.framework": 1,
     "CoreVideo.framework": 1,
-    "QuartzCore.framework": 1
+    "QuartzCore.framework": 1,
+    "AudioToolbox.framework": 1
 }

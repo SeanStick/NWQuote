@@ -28,22 +28,69 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; connect-src 'self' https://vpic.nhtsa.dot.gov; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Hello World</title>
+        <script type="text/javascript" charset="utf-8" src="js/b4hvinscanner.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/barcodescanner.js"></script>
+
     </head>
-    <body>
+    <body onload="onBodyLoad()">
         <div class="app">
             <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+            <p><br><br><br></p>
+            <div class="scan-buttons">
+                <div>
+                    <button id="scan-vin-button" >scan vin</button>
+                </div>
+                <div>
+                    <button id="scan-license-button" >scan license</button>
+                </div>
             </div>
+
+        <div class="car-info">
+            <div class="ymm">
+                <div id="input-year"></div>
+                <div id="input-make"></div>
+                <div id="input-model"></div>
+            </div>
+            <div class="vin" id="input-vin"></div>
+        </div>
+            <div class="driver-info" >
+                <div class="driver-name">
+                    <div id="first-name"></div>
+                    <div id="last-name"></div>
+                </div>
+                <div class="driver-dob">
+                    <div id="dob"></div>
+                </div>
+                <div class="driver-gen">
+                    <div id="gender"></div>
+                </div>
+                <div class="driver-addr">
+                    <div id="street"></div>
+                    <div id="city"></div>
+                    <div id="state"></div>
+                    <div id="zip"></div>
+                </div>
+                <div class="driver-license">
+                    <div id="license"></div>
+                </div>
+            </div>
+
+            <div class="submit-button">
+                <div>
+                    <button id="get-quote-button" >get quote</button>
+                </div>
+            </div>
+            <p>scanned: <span id="scan-result">n/a</span></p>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+
     </body>
 </html>

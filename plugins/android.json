@@ -9,6 +9,10 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.nationwide.NWQuote"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.nationwide.NWQuote"
     }
   },
   "dependent_plugins": {
