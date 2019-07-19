@@ -34,7 +34,9 @@ var app = {
         $( "#scan-license-button" ).click(function() {
             clickScanLicense();
         });
-
+        $( "#dollar-button" ).click(function() {
+            generateQuote();
+        });
 
     },
 
@@ -154,6 +156,12 @@ function scannerFailure(message) {
     alert("failed =(" + JSON.stringify(message));
 }
 
+function generateQuote(){
+    var col_value = $("#col-slider").val();
+    var comp_value = $("#comp-slider").val();
+    var premium = (Math.floor(Math.random() * (1000 - 500))+500);
+    $("#quote-amount").html("Estimated 6 Month Premium: $" + premium);
+}
 
 
 $("[data-slider]")
