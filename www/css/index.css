@@ -72,13 +72,11 @@ h1 {
 }
 
 .submit-row {
-    position: absolute;
-    bottom: 5%;
-    /*left: 41%;*/
+    margin-top: 35px;
 }
 
 .slider-things {
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 .texty-fields {
@@ -86,8 +84,7 @@ h1 {
 }
 
 .q-logo {
-    width: 80%;
-    height: 80%;
+    width: 35%;
 }
 
 .event {
