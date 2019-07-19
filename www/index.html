@@ -18,77 +18,97 @@
     under the License.
 -->
 <html>
-    <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; connect-src 'self' https://vpic.nhtsa.dot.gov; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-        <!--<script type="text/javascript" charset="utf-8" src="js/b4hvinscanner.js"></script>-->
-        <script type="text/javascript" charset="utf-8" src="js/barcodescanner.js"></script>
-
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Hello World</title>
+    <!--<script type="text/javascript" charset="utf-8" src="js/b4hvinscanner.js"></script>-->
+    <script type="text/javascript" charset="utf-8" src="js/barcodescanner.js"></script>
 </head>
 <body onload="onBodyLoad()">
-<div class="app">
-    <div class="scan-buttons">
-        <div>
-            <button id="scan-vin-button">scan vin</button>
+<!--<div class="app">-->
+<div class="container">
+    <div class="row">
+        <div class="scan-buttons col-4">
+            <div>
+                <button type="button" id="scan-vin-button" class="btn btn-primary btn-sm">scan vin
+                </button>
+            </div>
+            <br>
+            <div>
+                <button type="button" id="scan-license-button" class="btn btn-primary btn-sm">scan
+                    license
+                </button>
+            </div>
         </div>
-        <div>
-            <button id="scan-license-button">scan license</button>
-        </div>
-    </div>
+        <div class='col-8'>
 
-    <div class="car-info">
-        <div class="ymm">
-            <div id="input-year">1970</div>
-            <div id="input-make">Dodge</div>
-            <div id="input-model">Charger</div>
-        </div>
-        <div class="vin" >
-            <div id="input-vin">Diesel</div>
-        </div>
-    </div>
-    <div class="driver-info">
-        <div class="driver-name">
-            <div id="first-name">Dwayne</div>
-            <div id="last-name">Johnson</div>
-        </div>
-        <div class="driver-dob">
-            <div id="dob">05/02/1972</div>
-        </div>
-        <div class="driver-gen">
-            <div id="gender">M</div>
-        </div>
-        <div class="driver-addr">
-            <div id="street">9601 Wilshire Blvd</div>
-            <div id="city">Beverly Hills</div>
-            <div id="state">CA</div>
-            <div id="zip">90210</div>
-        </div>
-        <div class="driver-license">
-            <div id="license">119235xy</div>
-        </div>
-    </div>
+            <div class='card'>
+                <div class="car-info card-body">
+                    <div class="ymm row">
+                        <div id="input-year">1970</div>&nbsp;
+                        <div id="input-make">Dodge</div>&nbsp;
+                        <div id="input-model">Charger</div>
+                    </div>
+                    <div class="vin">
+                        <div id="input-vin">Diesel</div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
 
-    <div class="submit-button">
-        <div>
-            <button id="get-quote-button">get quote</button>
+            <div class='card'>
+                <div class="driver-info card-body">
+                    <div class="driver-name row">
+                        <div id="first-name">Dwayne</div>&nbsp;
+                        <div id="last-name">Johnson</div>&nbsp;
+                    </div>
+                    <div class='row'>
+                        <!--<div class="driver-dob">-->
+                        <div id="dob">05/02/1972</div>&nbsp;
+                        <!--</div>-->
+                        <!--<div class="driver-gen">-->
+                        <div id="gender">M</div>&nbsp;
+                        <!--</div>-->
+                        <!--<div class="driver-addr">-->
+                        <div id="street">9601 Wilshire Blvd</div>&nbsp;
+                        <div id="city">Beverly Hills</div>&nbsp;
+                        <div id="state">CA</div>&nbsp;
+                        <div id="zip">90210</div>&nbsp;
+                        <!--</div>-->
+                    </div>
+                    <div class="driver-license">
+                        <div id="license">119235xy</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<div class="submit-button">
+    <div>
+        <button id="get-quote-button">get quote</button>
+    </div>
+</div>
+<!--</div>-->
 <script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
 </body>

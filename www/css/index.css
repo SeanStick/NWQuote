@@ -40,10 +40,10 @@
 
 /* Portrait layout (default) */
 .app {
-/*    background:url(../img/logo.png) no-repeat center top; *//* 170px x 200px *//*
-    position:absolute;  */           /* position in the center of the screen */
-    left:50%;
-    top:50%;
+/*    background:url(../img/logo.png) no-repeat center top; *//* 170px x 200px */
+    position:Relative;             /* position in the center of the screen */
+    left:5%;
+    top:5%;
     height:50px;                   /* text area height */
     width:225px;                   /* text area width */
     text-align:center;
@@ -69,6 +69,12 @@ h1 {
     overflow:visible;
     padding:0px;
     text-align:center;
+}
+
+.submit-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 }
 
 .event {
