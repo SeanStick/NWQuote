@@ -71,21 +71,23 @@ h1 {
     text-align:center;
 }
 
-.submit-button {
+.submit-row {
     position: absolute;
     bottom: 5%;
-    left: 41%;
+    /*left: 41%;*/
 }
 
-/*.clicky-squares {*/
-    /*width: 100%;*/
-    /*margin: 8px;*/
-    /*padding: 14px;*/
-    /*box-shadow: 7px 6px 0px 0px rgba(0,0,0,0.75);*/
-/*}*/
+.slider-things {
+    margin-top: 25px;
+}
 
 .texty-fields {
     margin-top: 13px;
+}
+
+.q-logo {
+    width: 80%;
+    height: 80%;
 }
 
 .event {

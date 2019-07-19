@@ -28,20 +28,22 @@
         * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
             * Enable inline JS: add 'unsafe-inline' to default-src
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; connect-src 'self' https://vpic.nhtsa.dot.gov; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; connect-src 'self' https://vpic.nhtsa.dot.gov; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel='icon' href="img/quote_me_logo.png">
     <link rel="stylesheet" href="css/bootstrap.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.js"></script>
 
     <script src="js/simple-slider.js"></script>
-    <link href="css/simple-slider.css" rel="stylesheet" type="text/css" />
+    <link href="css/simple-slider.css" rel="stylesheet" type="text/css"/>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Hello World</title>
+    <title>Quote Me</title>
     <!--<script type="text/javascript" charset="utf-8" src="js/b4hvinscanner.js"></script>-->
     <script type="text/javascript" charset="utf-8" src="js/barcodescanner.js"></script>
 </head>
@@ -50,20 +52,10 @@
 <div class="container">
     <div class="row">
         <div class="scan-buttons col-4">
-            <div>
-
-                <img id="scan-vin-button" src="img/car.png">
-            </div>
-            <br>
-            <div>
-                <img id="scan-license-button" src="img/person.png">
-            </div>
-            <div>
-                <img id="dollar-button" src="img/dollar.png">
-            </div>
+            <img id="scan-vin-button" src="img/car.png">
         </div>
-        <div class='texty-fields col-8'>
 
+        <div class='texty-fields col-8'>
             <div class='card'>
                 <div class="car-info card-body">
                     <div class="ymm row">
@@ -76,8 +68,14 @@
                     </div>
                 </div>
             </div>
-            <br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="scan-buttons col-4">
+            <img id="scan-license-button" src="img/person.png">
+        </div>
 
+        <div class='texty-fields col-8'>
             <div class='card'>
                 <div class="driver-info card-body">
                     <div class="driver-name row">
@@ -103,28 +101,60 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <!--<div class='texty-fields col-8'>-->
+
+
+    <!--<br><br>-->
+
+
+    <!--</div>-->
+
+    <!--</div>-->
+    <div class="none slider-things">
+        <div>Comp</div>
+        <input type="text" data-slider="true" data-slider-range="100,500" data-slider-step="100"
+               data-slider-snap="true" style="display: none;">
+        <span class="output"></span>
+    </div>
+    <div class="none slider-things">
+        <div>Col</div>
+        <input type="text" data-slider="true" data-slider-range="100,500" data-slider-step="100"
+               data-slider-snap="true" style="display: none;">
+        <span class="output"></span>
+    </div>
+
+    <div class="custom-control custom-switch slider-things">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+        <label class="custom-control-label" for="customSwitch1">Smart Ride&trade; Test Drive</label>
+    </div>
+
+    <div>
+        <img class='q-logo' id="whitespace-filler" src="img/quoteMeLogo.png">
+    </div>
+
+    <div class="row">
+        <div class="scan-buttons col-4">
+            <img id="dollar-button" src="img/dollar.png">
         </div>
 
+        <div class='texty-fields col-8'>
+            <div class='card'>
+                <div class="quote-info card-body">
+                    <div id="quote-amount"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="none">
-        <div>Comp</div>
-        <input type="text" data-slider="true" data-slider-range="100,500" data-slider-step="100" data-slider-snap="true" style="display: none;">
-        <span class="output"></span>
-    </div>
-    <div class="none">
-        <div>Col</div>
-        <input type="text" data-slider="true" data-slider-range="100,500" data-slider-step="100" data-slider-snap="true" style="display: none;">
-        <span class="output"></span>
-    </div>
-</div>
 
-
-<div class="submit-button">
-    <div>
-        <button id="get-quote-button">get quote</button>
-    </div>
 </div>
+<!--<div class="submit-button">-->
+<!--<div>-->
+<!--<button id="get-quote-button">get quote</button>-->
+<!--</div>-->
+<!--</div>-->
 <!--</div>-->
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
