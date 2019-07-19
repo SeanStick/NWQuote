@@ -28,7 +28,6 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-//        onBodyLoad();
         $( "#scan-vin-button" ).click(function() {
             clickScan();
         });
@@ -49,25 +48,32 @@ var app = {
 
 app.initialize();
 
-
-//function onBodyLoad() {
-//    scanButton = document.getElementById("scan-vin-button");
-//    resultSpan = document.getElementById("scan-result");
-//    scanButton.addEventListener("click", clickScan, false);
-//}
-
 function clickScan() {
-    // console.log("clickScan run");
     window.plugins.VINBarcodeScanner.scan(scannerSuccess, scannerFailure);
 }
 
 function scannerSuccess(result) {
-    alert(JSON.stringify(result));
-//    resultSpan.innerText = "success: " + JSON.stringify(result);
-//    alert(result.vincode);
+    $.ajax({
+    	url: "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVINValuesBatch/",
+    	type: "POST",
+    	data: { format: "json", data: result.VINCode + ";"},
+    	dataType: "json",
+    	success: function(result)
+    	{
+    		alert(JSON.stringify(result));
+    		$("#input-year").html(result.Results[0].ModelYear)
+    		$("#input-make").html(result.Results[0].Make)
+    		$("#input-model").html(result.Results[0].Model)
+
+    	},
+    	error: function(xhr, ajaxOptions, thrownError)
+    	{
+    		console.log(xhr.status);
+    		alert(thrownError);
+    	}
+    });
 }
 
 function scannerFailure(message) {
     alert("failed =(" + JSON.stringify(message));
-//    resultSpan.innerText = "failure: " + JSON.stringify(message);
 }
