@@ -55,7 +55,7 @@ function clickScanVIN() {
         cordova.plugins.barcodeScanner.scan(
           function (result) {
           console.log(result.text)
-                scannerSuccess(result.text);
+                scannerVINSuccess(result.text);
 //              alert("We got a barcode\n" +
 //                    "Result: " + result.text + "\n" +
 //                    "Format: " + result.format + "\n" +
@@ -109,7 +109,7 @@ function clickScanLicense() {
 
 }
 
-function scannerSuccess(result) {
+function scannerVINSuccess(result) {
     $.ajax({
     	url: "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVINValuesBatch/",
     	type: "POST",
@@ -129,6 +129,25 @@ function scannerSuccess(result) {
     		alert(thrownError);
     	}
     });
+}
+
+function scannerLicenseSuccess(result) {
+        alert(JSON.stringify(result));
+        $("#first-name").html(result.Results[0].ModelYear);
+        $("#ilast-name").html(result.Results[0].Make);
+        $("#dob").html(result.Results[0].Model);
+        $("#gender").html(result.Results[0].VIN);
+        $("#street").html(result.Results[0].VIN);
+        $("#city").html(result.Results[0].VIN);
+        $("#state").html(result.Results[0].VIN);
+        $("#zip").html(result.Results[0].VIN);
+        $("#license").html(result.Results[0].VIN);
+    },
+    error: function(xhr, ajaxOptions, thrownError)
+    {
+        console.log(xhr.status);
+        alert(thrownError);
+    }
 }
 
 function scannerFailure(message) {
