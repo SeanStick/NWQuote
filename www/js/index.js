@@ -134,12 +134,17 @@ function scannerLicenseSuccess(result) {
 //        alert(JSON.stringify(result));
         $("#first-name").html(result["DAC"]);
         $("#last-name").html(result["DCS"]);
-        $("#dob").html(result["DBB"]);
-        $("#gender").html(result["DBC"]);
+        $("#dob").html(result["DBB"].substring(0,2)+"/"+result["DBB"].substring(2,4)+"/"+result["DBB"].substring(4,result["DBB"].length));
+        if( result["DBC"] == '1'){
+            $("#gender").html("M");
+        }
+        else{
+            $("#gender").html("F");
+        }
         $("#street").html(result["DAG"]);
-        $("#city").html(result["DAI"]);
+        $("#city").html(result["DAI"]+",");
         $("#state").html(result["DAJ"]);
-        $("#zip").html(result["DAK"]);
+        $("#zip").html(result["DAK"].substring(0,5));
         $("#license").html(result["DAQ"]);
 }
 
